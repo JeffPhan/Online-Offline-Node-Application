@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" manifest="myManifest.appcache">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Give A Job</title>
+    <link rel=stylesheet href="css/main.css">
+    <link rel="author" href="humans.txt">
+</head>
+<body>
+	<header>
+		Give A Job
+	</header>
+	<form name="job" id="job" method="POST" onsubmit="return save()" target="_blank">
+		<label for="jobDescription">Job Description</label>
+		<textarea  name="jobDescription" for="Job" id="jobDescription" cols="50" rows="5" placeholder="300 words max" required></textarea>
+		<div id="wordsRemaining"></div>
+
+		<button name="geoButton" id="geoButton" type="button">Location</button>
+    	<input name="location" type="text" id="location" disabled="disabled">
+
+		<label for="fullName">Full Name</label>
+		<input name="fullName" id="fullName" type="text" placeholder="Full Name" required>
+
+		<select name="urgency" id="urgency" required>
+			<option selected>Urgency</option>
+			<option>Minor</option>
+			<option>Major</option>
+			<option>Urgent</option>
+		</select>
+		<label for="date" >Date of order:</label>
+		<input name="date" type="date" id="date">
+	<button id="submit" type="submit" onclick="document.getElementById('location').disabled = false;">Submit</button>
+	</form>
+	
+	<footer>&copy; Matthew Dickens and Jeff Phan</footer>
+	<script type="text/javascript" src="javascripts/script.js"></script>
+
+	<script>
+		document.getElementById('date').valueAsDate = new Date();
+
+		getGeoLocation(document.getElementById('location'), document.getElementById('geoButton'));
+		checkWordCount(document.getElementById('jobDescription'), document.getElementById('wordsRemaining'));
+	</script>
+</body>
+</html>

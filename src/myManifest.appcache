@@ -1,0 +1,12 @@
+CACHE MANIFEST
+#VERSION 49
+
+CACHE:
+index.html
+javascripts/script.js
+css/main.css
+
+FALLBACK:
+
+NETWORK:
+*
